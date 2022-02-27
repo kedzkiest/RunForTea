@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityEngine.SceneManagement;
@@ -44,7 +45,7 @@ public class TimeCounter : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.T) && isTimeUp)
+        if ((Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("backTitle")) && isTimeUp)
         {
             SceneManager.LoadScene("Main");
         }

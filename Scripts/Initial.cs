@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XInput;
 using UnityEngineInternal;
 using UnityStandardAssets.Characters.ThirdPerson;
 
@@ -30,10 +31,9 @@ public class Initial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && firstSpacePress)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump")) && firstSpacePress)
         {
             firstSpacePress = false;
-            
             startCanvas.enabled = false;
             playCanvas.enabled = true;
             player.GetComponent<ThirdPersonUserControl>().enabled = true;

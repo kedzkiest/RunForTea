@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ResetGame : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class ResetGame : MonoBehaviour
             resetCanvas.enabled = false;
         }
         
-        if (Input.GetKey(KeyCode.R) && isDropped)
+        if ((Input.GetKey(KeyCode.R) || Input.GetButtonDown("resetPosition")) && isDropped)
         {
             player.transform.position = new Vector3(0, 1, 0);
             player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
